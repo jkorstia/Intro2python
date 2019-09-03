@@ -1,0 +1,8 @@
+# homework assignment for week 1 
+# copied and pasted from terminal
+(base) compute-3-32:/lustre/work/jkorstia/software$ cd /lustre/scratch/jenjense/200Mammals/
+(base) compute-3-32:/lustre/scratch/jenjense/200Mammals$ ls -lhrt | wc -l
+94
+(base) compute-3-32:/lustre/scratch/jenjense/200Mammals$ cd /lustre/scratch/jkorstia/
+(base) compute-3-32:/lustre/scratch/jkorstia$ mkdir testing
+(base) compute-3-32:/lustre/scratch/jkorstia$ 
