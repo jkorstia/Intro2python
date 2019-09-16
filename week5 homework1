@@ -1,0 +1,54 @@
+#################################################
+#		Homework 1, Week 5, Intro2Python
+#You have three species of bats that you are working with 
+#(Myotis austroriparius, Myotis septentrionalis, and Eptesicus fuscus). 
+# Write one script that will do all of the following:
+#Ask user for input for each species
+#Create string for each species
+#Abbreviate in all caps each species using 1st 3 letter of genus and species. Ex: 8Myotis austroriparius will be MYOAUS.
+#Will print to the console in this format:
+
+#There are three species of bats:
+#MYOAUS
+#MYOSEP
+#EPTFUS
+##################################################
+
+# ask user for species names and store as variables
+A=input("What is the full scientific name of species 1?")
+B=input("What is the full scientific name of species 2?")
+C=input("What is the full scientific name of species 3?")
+
+#convert to uppercase
+A=A.upper()
+B=B.upper()
+C=C.upper()
+
+print("There are three species of bats:")
+print(A[:3]+A[7:10])
+print(B[:3]+B[7:10])
+print(C[:3]+C[10:13])
+
+
+### !!!! is there a way to make this more portable & flexible ??????? !!!!!!
+
+dictionaries?????
+
+# ask user for species names and store as variables
+A=input("What is the full scientific name of species 1?").split()
+B=input("What is the full scientific name of species 2?").split()
+C=input("What is the full scientific name of species 3?").split()
+
+#convert to uppercase
+A=A.upper()
+B=B.upper()
+C=C.upper()
+
+# create a key to combine the names into a dictionary
+keys=['genus','species']
+
+d=dict(zip(keys,A)) 
+>>> d
+{'genus': 'Myotis', 'species': 'austroriparius'}
+
+???? how do you add the rest of the name values to the dictionary??
