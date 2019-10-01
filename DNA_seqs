@@ -1,0 +1,26 @@
+Here's a short DNA sequence: 
+ACTGATCGATTACGTATAGTATTTGCTATCATACATATATATCGATGCGTTCAT 
+Write a program that will print out the AT content of this DNA sequence. Hint: you can use normal mathematical symbols like add (+), subtract (-), multiply (*), divide (/) and parentheses to carry out calculations on numbers in Python. 
+
+
+
+sequence= "ACTGATCGATTACGTATAGTATTTGCTATCATACATATATATCGATGCGTTCAT"
+
+# count As and Ts and add together
+ATcontent=sequence.count("A") + sequence.count("T")
+
+# print at content statement (not ideal formatting here)
+print('there are ', ATcontent, 'As and Ts in the sequence')
+
+
+
+
+Here's a short DNA sequence: 
+ACTGATCGATTACGTATAGTAGAATTCTATCATACATATATATCGATGCGTTCAT 
+The sequence contains a recognition site for the EcoRI restriction enzyme, which cuts at the motif G*AATTC (the position of the cut is indicated by an asterisk). 
+Write a program which will calculate the size of the two fragments that will be produced when the DNA sequence is digested with EcoRI. 
+
+
+sequence="ACTGATCGATTACGTATAGTAGAATTCTATCATACATATATATCGATGCGTTCAT"
+cutsite=sequence.find("GAATTC")
+21
