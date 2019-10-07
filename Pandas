@@ -1,0 +1,47 @@
+# Python pandas assignment
+
+#1. Use avan_rm.bed file in my /lustre/jenjense/
+#2. Make sure it has proper column names
+#3.  Determine what Classes are in there (SINE, etc)
+#4.  Create new dataframe from that file using only elements in class “SINE” 
+#5.  Drop columns “Strand” and “Score”
+#6.  Create new column “Length”
+#7.  Determine min, max, and mean for all SINEs
+#8.  Determine min, max, and mean length for each family of SINE (metulj and ZenoSINE)
+
+####################################################################################
+
+
+import pandas as pd
+
+# 1. read in tab separated bed file
+bed=pd.read_csv("aVan_rm.bed", sep="\t")
+
+# 2. create a list with column names
+fields=["Scaffold", "Start", "Stop", "Element",	"Score", "Strand", "Class", "Family", "Divergence"]
+# assign names to columns
+bed.columns = fields
+# check that column naming was successful
+print(bed.head())
+
+# 3. determine how many Classes of TEs there are in the bed file
+classes = bed.Class.unique()
+
+# 4. make a new dataframe of sines only
+sines_only=bed[bed.Class == "SINE"] 
+
+# 5. drop Strand and Score columns
+sines_only=sines_only.drop(["Strand", "Score"], axis=1)
+
+# 6. Create Length column and populate with correct values (stop-start)
+sines_only["Length"]=(sines_only["Stop"] - sines_only["Start"])
+
+#7.  Determine min, max, and mean for all SINEs 
+print(sines_only["Length"].mean())  ##188.8
+print(sines_only["Length"].min())	##99
+print(sines_only["Length"].max())	#351
+
+#8.  Determine min, max, and mean length for each family of SINE (metulj and ZenoSINE)
+print(sines_only.groupby("Family")["Length"].mean())
+print(sines_only.groupby("Family")["Length"].min())
+print(sines_only.groupby("Family")["Length"].max())
