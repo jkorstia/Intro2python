@@ -14,8 +14,46 @@ import random
 # create a list of bases to randomly choose from
 bases = ["A", "C", "U", "G"]
 
-# make a list of 100 random basess
-sequence = random.choices(bases, k=1000)
+# make a string of 1000 random bases
+# here the .join command joins the list output from random.choices into an empty string
+sequence = ''.join(random.choices(bases, k=1000))
 
-#convert list to string
-seqStr = ' '.join([str(elem) for elem in sequence]) 
+# look at sequence to make sure its correctly formatted
+print(sequence)
+AAAACGGCUCCACCUUGAACAUUGGAGCUCUGCAGCACCAGCUGAAGUCCAUACGCAAGGGAUCCCCAUUUUAGCGUACACAGAAACGUUAAGUUGCGGUUGAUUGUCUCCAACAUCUUUACUUGCGACGGGUUGUCUACCAUGGCCCUCAAAACACCAGAUGCGGCUUUGGGGGCCCGCGAAUGUCUUGCCACGUUGGUAGUAUACCUGUCAGAAGCAGGCAAGUUUUAAUUAUGCUACGCACGAUACAUCCAAAUUAGGGUGCGAGCACAAGGCCGUGUCGGGACCAUGAGUGAUUUGUCCACAAUCAUAGCGGGGGCUCGCCUCUACAAGCUGUGGUCAUAUAACCACUUCGGCCUGAUAAAGCAGUAGCAUGAUGAGCUGCUAUAAAAGGACCUGUCGCACUAUUUUGAGCAUGAUGGGGUUCGCACCUGAACCCGAAAGACCAAGGACUACUCUGAUAGGUAUGUCACACUGUGUUGGCUCGCUUUAGGGCCUGAAAGUUCCUCUACCCGCAGUCAUCCGUAAAGCACAACCUUAUUGGCGCGGCUCCACAGCCGCUCUUGUACCCCACGGGGGUAAAUGCACCUGUCGGUUAGUGCCUUGAGUUCCGUUGGCAUGAGCAUACUUAUGGAUGGACGGCGCCGUCUUUGUCACUUAUACUCGUGCCGCUCGCCUGCCAAGGAAGCUUUUCAGACCAACUGCAGUGUUGCCGUUUUCGGCAACCUCCGAAUCAAAAGAACACCAAAUCGCCGAAACCCCUCUGGGUGAGCAAGCCACUUGCGGCUGGGAGCCAGGGACUGCUUAGAAUUCUGACAAGAGCGAACCCUAACCGUCAUGGUAGACUGUCCACUGUGAUGGAAUAUAACCCAGCAGUCUCUCACUAUCCCGGGAAAUGGGUUUCCUCUGGAUCCCGGGGGAGGGACCCCAUUCUAGAUCUACUAGCAGAGUGUACACGCGUCUACAGGUUCGCGCUGCUGGGAGAUAUUGGUUGGGAAAG
+
+# count start codons to see how many "genes" I should be expecting from this sequence
+print("There are", sequence.count("AUG"), "start codons in the sequence.")
+There are  17 start codons in the sequence.
+
+# split the random sequence into "genes" by splitting string after "AUG" start codon
+genes = sequence.split('AUG')
+print("There are", len(genes), "genes in the sequence")
+
+# keep only genes that are more than 50bp in length (loop method)
+big=[]
+for gene in genes:
+	if len(gene) >=50:
+		big.append(gene)
+#print lengths for big genes
+for gene in big:
+	print(len(gene))
+141
+52
+82
+113
+200
+102
+
+# keep only genes that are more than 50bp in length (list comprehension method)
+biglist=[gene for gene in genes if len(gene) > 50]
+
+#print lengths for big genes
+for gene in biglist:
+	print(len(gene))
+141
+52
+82
+113
+200
+102
