@@ -1,0 +1,21 @@
+#GOAL: Determine length of large genes on mRNA strand
+#Assumptions: Genes are recognized as segments of RNA separated by start codon AUG
+#1 Generate a random RNA sequence into a STRING 1000 base pairs long
+#2 Create list of genes that are separated by start codon
+#3 Create list of large genes (>50bp) 
+#4 Determine length of large genes
+##3 and #4 must be done TWICE: once with a loop and once with list comprehension
+#* If your 1st fragment in #2 does not start with AUG (which is probably won’t), do not try to overcomplicate this.  Just consider it one of the fragments and proceed forward….
+
+# imort needed modules
+import random
+
+
+# create a list of bases to randomly choose from
+bases = ["A", "C", "U", "G"]
+
+# make a list of 100 random basess
+sequence = random.choices(bases, k=1000)
+
+#convert list to string
+seqStr = ' '.join([str(elem) for elem in sequence]) 
