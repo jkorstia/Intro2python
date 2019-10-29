@@ -2,11 +2,11 @@
 #	1.  Use avan_rm.bed file in my /lustre/work/jenjense/pandas
 #	2.  Make sure it has proper column names
 #	3.  Determine what Families are in there (SINE, etc)
-#	4.  Create new dataframe from that file using only elements in family “SINE” 
-#	5.  Drop columns “Strand” and “Score”
-#	6.  Create new column “Length”
-#	7.  Create new column ”Proportion” = Length/Genome size
-#	8.  Save dataframe as new csv file ”aVan.csv”
+#	4.  Create new dataframe from that file using only elements in family "SINE" 
+#	5.  Drop columns "Strand" and "Score"
+#	6.  Create new column "Length"
+#	7.  Create new column "Proportion" = Length/Genome size
+#	8.  Save dataframe as new csv file "aVan.csv"
 
 ####################################################################################
 
@@ -49,9 +49,10 @@ keep=keep.drop(["Strand", "Score"], axis=1)
 # 6. Create Length column and populate with correct values (stop-start)
 keep["Length"]=(keep["Stop"] - keep["Start"])
 
-# 7.  Create new column ”Proportion” = Length/Genome size
-keep["Proportion"]=(keep["length"] / GENOMESIZE)
+# 7.  Create new column "Proportion" = Length/Genome size
+keep["Proportion"]=(keep["Length"] / GENOMESIZE)
 
-# 8. Save dataframe as new csv file ”aVan.csv”
-export_csv = keep.to_csv('TAXON.csv', index=False, header=True)
+# 8. Save dataframe as new csv file "aVan.csv"
+export_csv = keep.to_csv(TAXON+'.csv', index=False, header=True)
+
 
