@@ -54,3 +54,4 @@ keep["Proportion"]=(keep["length"] / GENOMESIZE)
 
 # 8. Save dataframe as new csv file ”aVan.csv”
 export_csv = keep.to_csv('TAXON.csv', index=False, header=True)
+
