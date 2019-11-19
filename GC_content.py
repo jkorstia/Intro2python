@@ -33,8 +33,8 @@ print(shorties)
 
 def gc_content(DNAseq):
 	"""calculates GC content in a DNA sequence"""
-	C=shorties.count("C")
-	G=shorties.count("G")
+	C=seq.count("C")
+	G=seq.count("G")
 	GC=(G+C)/FRAG_SZ
 	return GC
 	
